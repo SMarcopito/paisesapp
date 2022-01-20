@@ -1,0 +1,15 @@
+.container{
+    ion-card{
+      display: inline-block;
+      width: 160px;
+      height:50%;
+      ion-card-title{
+      
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        
+      }
+        
+    }
+  }

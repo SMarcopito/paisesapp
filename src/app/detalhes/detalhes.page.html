@@ -1,0 +1,42 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>detalhes</ion-title>
+    <ion-buttons slot="start">
+      <ion-back-button></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card *ngIf="data">
+    <div>  
+
+      <ion-card-header>
+        <ion-card-title>{{data.nome.abreviado}} / {{data.id['ISO-3166-1-ALPHA-3']}}</ion-card-title>
+        <ion-card-subtitle>Capital: {{data.governo.capital.nome}}</ion-card-subtitle>
+        
+      </ion-card-header>
+      
+      <ion-card-content>
+        <img src="{{band}}" alt="">
+        <h1>Continente: {{data.localizacao.regiao.nome}}   <h1 *ngIf="data.localizacao['regiao-intermediaria']">  |  {{data.localizacao['regiao-intermediaria'].nome}}</h1></h1>
+        <h2>Area total: {{data.area.total}} Km²</h2>
+        <h2>idioma falado: <h2 *ngFor="let idioma of data.linguas">{{idioma.nome}},</h2></h2>
+        <h2> Sistema monetario: <h2 *ngFor="let moeda of data['unidades-monetarias']">{{moeda.nome}},</h2></h2>
+        <br>
+        <div name="main" style="position:relative;display:grid;">
+          <h6 [class]="show?'showText':'hideText'">{{data.historico}}</h6>
+          <br>
+          <h6 [class]="show?'showText':'hideText'">sub-região: {{data.localizacao['sub-regiao'].nome}}</h6>
+          <br>
+          
+          <div [class]="show?'showReadMore':'showReadLess'" (click)="displayText()">
+            {{show?'Ver menos ⮝' :'Ver mais ⮟'}}
+         </div>
+        </div>
+       
+      </ion-card-content>
+    </div>
+   
+</ion-card>
+</ion-content>

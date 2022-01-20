@@ -1,0 +1,42 @@
+
+<ion-searchbar animated (ionChange)="busca($event)"></ion-searchbar>
+
+
+<ion-grid>
+  <ion-row>
+    <h1>paises:</h1>
+  </ion-row>
+</ion-grid>
+<div class="container">
+  <ion-list>
+    
+    <ion-card *ngFor="let pais of paises | filter:text ; let i = index" (click)="detalhes(pais)">
+      <div class="fundo">  
+
+        <ion-card-header>
+          <ion-card-title>{{pais.nome.abreviado}}</ion-card-title>
+          <h6>{{pais.id['ISO-3166-1-ALPHA-2']}}</h6>
+          <ion-card-subtitle>{{pais.governo.capital.nome}}</ion-card-subtitle>
+          <ion-card-subtitle>{{pais.localizacao["sub-regiao"].nome}}</ion-card-subtitle>
+          
+        </ion-card-header>
+        
+        <ion-card-content>
+          {{pais.localizacao.regiao.nome}}
+        </ion-card-content>
+      </div>
+      <div >
+        <ion-button color="tertiary" expand="block">Saiba Mais</ion-button>
+      </div>
+  </ion-card>
+  </ion-list>
+  
+  <ion-infinite-scroll threshold="100px" (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content
+      loadingSpinner="bubbles"
+      loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+  
+  
+  </div>

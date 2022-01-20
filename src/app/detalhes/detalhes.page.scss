@@ -1,0 +1,22 @@
+.hideText {
+    height: 20%;
+    overflow: hidden;
+  }
+  
+  .showText {
+    height: 100%;
+    overflow: unset;
+  }
+  
+  .showReadMore {
+    width: 100%; 
+    position: absolute; 
+    top: 100%;
+  }
+  
+  .showReadLess {
+    width: 100%; 
+    position: absolute; 
+    top: 22%; 
+    
+  }
